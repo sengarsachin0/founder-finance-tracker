@@ -1,0 +1,29 @@
+{
+  "name": "Finance Command Center",
+  "short_name": "FinanceCC",
+  "description": "Internal financial dashboard for founders",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/api/icons/192",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/api/icons/512",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    { "name": "Dashboard",     "url": "/",              "description": "Financial overview" },
+    { "name": "Daily Revenue", "url": "/daily-revenue", "description": "Log daily revenue" },
+    { "name": "Expenses",      "url": "/expenses",      "description": "Manage expenses" }
+  ]
+}
