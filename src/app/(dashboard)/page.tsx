@@ -430,7 +430,7 @@ export default function DashboardPage() {
                       <Cell key={i} fill={CHART_COLORS[i % CHART_COLORS.length]} />
                     ))}
                   </Pie>
-                  <Tooltip formatter={(v: number) => formatINR(v)} />
+                  <Tooltip formatter={(v) => formatINR(Number(v))} />
                 </PieChart>
               </ResponsiveContainer>
               <div className="flex-1 space-y-1.5 overflow-y-auto max-h-52 text-xs">
@@ -472,7 +472,7 @@ export default function DashboardPage() {
                   tickFormatter={(v) => `₹${(v / 1000).toFixed(0)}k`}
                   width={48}
                 />
-                <Tooltip formatter={(v: number) => [formatINR(v), "Expenses"]} />
+                <Tooltip formatter={(v) => [formatINR(Number(v)), "Expenses"]} />
                 <Line
                   type="monotone"
                   dataKey="total"

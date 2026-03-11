@@ -333,7 +333,7 @@ export default function AnalyticsPage() {
                       />
                     ))}
                   </Pie>
-                  <Tooltip formatter={(v: number) => formatINR(v)} />
+                  <Tooltip formatter={(v) => formatINR(Number(v))} />
                 </PieChart>
               </ResponsiveContainer>
               <div className="flex-1 space-y-1.5 overflow-y-auto max-h-[220px] text-xs">
@@ -377,7 +377,7 @@ export default function AnalyticsPage() {
                   width={120}
                   tickFormatter={(v: string) => v.length > 16 ? v.slice(0, 16) + "…" : v}
                 />
-                <Tooltip formatter={(v: number) => [formatINR(v), "Spend"]} />
+                <Tooltip formatter={(v) => [formatINR(Number(v)), "Spend"]} />
                 <Bar dataKey="value" fill="#6366f1" radius={[0, 3, 3, 0]} />
               </BarChart>
             </ResponsiveContainer>
@@ -394,7 +394,7 @@ export default function AnalyticsPage() {
                 <CartesianGrid strokeDasharray="3 3" className="stroke-border" />
                 <XAxis dataKey="month" tick={{ fontSize: 11 }} />
                 <YAxis tick={{ fontSize: 11 }} tickFormatter={shortINR} width={52} />
-                <Tooltip formatter={(v: number) => [formatINR(v), "Expenses"]} />
+                <Tooltip formatter={(v) => [formatINR(Number(v)), "Expenses"]} />
                 <Line
                   type="monotone"
                   dataKey="total"
@@ -418,7 +418,7 @@ export default function AnalyticsPage() {
                 <CartesianGrid strokeDasharray="3 3" className="stroke-border" />
                 <XAxis dataKey="month" tick={{ fontSize: 11 }} />
                 <YAxis tick={{ fontSize: 11 }} tickFormatter={shortINR} width={52} />
-                <Tooltip formatter={(v: number) => formatINR(v)} />
+                <Tooltip formatter={(v) => formatINR(Number(v))} />
                 <Legend wrapperStyle={{ fontSize: 11 }} />
                 <Bar dataKey="Inflow" fill="#22c55e" radius={[3, 3, 0, 0]} />
                 <Bar dataKey="Outflow" fill="#f43f5e" radius={[3, 3, 0, 0]} />
@@ -441,7 +441,7 @@ export default function AnalyticsPage() {
                   <CartesianGrid strokeDasharray="3 3" className="stroke-border" />
                   <XAxis dataKey="month" tick={{ fontSize: 11 }} />
                   <YAxis tick={{ fontSize: 11 }} tickFormatter={shortINR} width={52} />
-                  <Tooltip formatter={(v: number) => formatINR(v)} />
+                  <Tooltip formatter={(v) => formatINR(Number(v))} />
                   <Legend wrapperStyle={{ fontSize: 11 }} />
                   {breakdownCategories.map((cat) => (
                     <Bar
