@@ -597,7 +597,7 @@ export function TallyImportModal({ onImported }: { onImported: () => void }) {
                         <td className="px-3 py-2">
                           <Select
                             value={ledgerMap[ledger] ?? "Other"}
-                            onValueChange={(v) => setLedgerMap((m) => ({ ...m, [ledger]: v }))}
+                            onValueChange={(v) => setLedgerMap((m) => ({ ...m, [ledger]: v ?? m[ledger] ?? "Other" }))}
                           >
                             <SelectTrigger className="h-7 text-xs">
                               <SelectValue />
@@ -663,7 +663,7 @@ export function TallyImportModal({ onImported }: { onImported: () => void }) {
                         <Input value={row.ledger} onChange={(e) => updateField(row.id, "ledger", e.target.value)} className="h-7 text-xs px-2" />
                       </td>
                       <td className="px-3 py-2 min-w-[140px]">
-                        <Select value={row.category} onValueChange={(v) => updateField(row.id, "category", v)}>
+                        <Select value={row.category} onValueChange={(v) => updateField(row.id, "category", v ?? row.category)}>
                           <SelectTrigger className="h-7 text-xs"><SelectValue /></SelectTrigger>
                           <SelectContent>
                             {EXPENSE_CATEGORIES.map((c) => (

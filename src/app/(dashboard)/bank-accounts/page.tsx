@@ -131,7 +131,7 @@ function AddAccountModal({ onAdded }: { onAdded: () => void }) {
           </div>
           <div className="space-y-2">
             <Label>Currency</Label>
-            <Select value={currency} onValueChange={(v) => setCurrency(v as Currency)}>
+            <Select value={currency} onValueChange={(v) => { if (v) setCurrency(v as Currency); }}>
               <SelectTrigger className="w-full">
                 <SelectValue />
               </SelectTrigger>

@@ -163,7 +163,7 @@ function AddEntryModal({
             </div>
             <div className="space-y-2">
               <Label>Stage</Label>
-              <Select value={stage} onValueChange={(v) => setStage(v as Stage)}>
+              <Select value={stage} onValueChange={(v) => { if (v) setStage(v as Stage); }}>
                 <SelectTrigger className="w-full">
                   <SelectValue />
                 </SelectTrigger>
@@ -211,7 +211,7 @@ function AddEntryModal({
           <div className="grid grid-cols-2 gap-3">
             <div className="space-y-2">
               <Label>Currency</Label>
-              <Select value={currency} onValueChange={(v) => setCurrency(v as Currency)}>
+              <Select value={currency} onValueChange={(v) => { if (v) setCurrency(v as Currency); }}>
                 <SelectTrigger className="w-full">
                   <SelectValue />
                 </SelectTrigger>
@@ -387,7 +387,7 @@ function EditEntryModal({
             </div>
             <div className="space-y-2">
               <Label>Stage</Label>
-              <Select value={stage} onValueChange={(v) => setStage(v as Stage)}>
+              <Select value={stage} onValueChange={(v) => { if (v) setStage(v as Stage); }}>
                 <SelectTrigger className="w-full">
                   <SelectValue />
                 </SelectTrigger>
@@ -429,7 +429,7 @@ function EditEntryModal({
           <div className="grid grid-cols-2 gap-3">
             <div className="space-y-2">
               <Label>Currency</Label>
-              <Select value={currency} onValueChange={(v) => setCurrency(v as Currency)}>
+              <Select value={currency} onValueChange={(v) => { if (v) setCurrency(v as Currency); }}>
                 <SelectTrigger className="w-full">
                   <SelectValue />
                 </SelectTrigger>

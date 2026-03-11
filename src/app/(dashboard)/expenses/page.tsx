@@ -159,7 +159,7 @@ function ExpenseForm({
       <div className="grid grid-cols-2 gap-3">
         <div className="space-y-2">
           <Label>Currency</Label>
-          <Select value={currency} onValueChange={(v) => setCurrency(v as Currency)}>
+          <Select value={currency} onValueChange={(v) => { if (v) setCurrency(v as Currency); }}>
             <SelectTrigger className="w-full">
               <SelectValue />
             </SelectTrigger>
@@ -216,7 +216,7 @@ function ExpenseForm({
           Recurring expense
         </button>
         {isRecurring && (
-          <Select value={recurrence} onValueChange={(v) => setRecurrence(v as Recurrence)}>
+          <Select value={recurrence} onValueChange={(v) => { if (v) setRecurrence(v as Recurrence); }}>
             <SelectTrigger className="w-36">
               <SelectValue placeholder="Frequency" />
             </SelectTrigger>

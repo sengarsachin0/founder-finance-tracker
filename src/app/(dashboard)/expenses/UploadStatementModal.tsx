@@ -736,7 +736,7 @@ export function UploadStatementModal({ onImported }: { onImported: () => void })
                         <Input value={row.description} onChange={(e) => updateField(row.id, "description", e.target.value)} className="h-7 text-xs px-2" />
                       </td>
                       <td className="px-3 py-2 min-w-[160px]">
-                        <Select value={row.category} onValueChange={(v) => updateField(row.id, "category", v)}>
+                        <Select value={row.category} onValueChange={(v) => updateField(row.id, "category", v ?? row.category)}>
                           <SelectTrigger className="h-7 text-xs"><SelectValue /></SelectTrigger>
                           <SelectContent>
                             {EXPENSE_CATEGORIES.map((c) => (
