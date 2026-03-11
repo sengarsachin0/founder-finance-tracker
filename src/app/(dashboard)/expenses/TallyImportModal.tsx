@@ -524,8 +524,8 @@ export function TallyImportModal({ onImported }: { onImported: () => void }) {
               {/* Column mapping */}
               <div className="space-y-3">
                 <p className="text-sm font-medium">Column mapping</p>
-                <ColumnSelect label="Date" value={mapping.dateCol} onChange={(v) => setMapping((m) => ({ ...m, dateCol: v }))} headers={headers} required />
-                <ColumnSelect label="Ledger / Particulars" value={mapping.ledgerCol} onChange={(v) => setMapping((m) => ({ ...m, ledgerCol: v }))} headers={headers} required />
+                <ColumnSelect label="Date" value={mapping.dateCol} onChange={(v) => setMapping((m) => ({ ...m, dateCol: v ?? "" }))} headers={headers} required />
+                <ColumnSelect label="Ledger / Particulars" value={mapping.ledgerCol} onChange={(v) => setMapping((m) => ({ ...m, ledgerCol: v ?? "" }))} headers={headers} required />
 
                 <div className="grid grid-cols-[130px_1fr] items-start gap-3">
                   <Label className="text-sm text-right pt-2">Amount type</Label>
@@ -551,13 +551,13 @@ export function TallyImportModal({ onImported }: { onImported: () => void }) {
                 </div>
 
                 {(mapping.amountType === "debit_col" || mapping.amountType === "debit_credit") && (
-                  <ColumnSelect label="Debit column" value={mapping.debitCol} onChange={(v) => setMapping((m) => ({ ...m, debitCol: v }))} headers={headers} required />
+                  <ColumnSelect label="Debit column" value={mapping.debitCol} onChange={(v) => setMapping((m) => ({ ...m, debitCol: v ?? "" }))} headers={headers} required />
                 )}
                 {mapping.amountType === "debit_credit" && (
-                  <ColumnSelect label="Credit column" value={mapping.creditCol} onChange={(v) => setMapping((m) => ({ ...m, creditCol: v }))} headers={headers} />
+                  <ColumnSelect label="Credit column" value={mapping.creditCol} onChange={(v) => setMapping((m) => ({ ...m, creditCol: v ?? "" }))} headers={headers} />
                 )}
                 {mapping.amountType === "amount_col" && (
-                  <ColumnSelect label="Amount column" value={mapping.amountCol} onChange={(v) => setMapping((m) => ({ ...m, amountCol: v }))} headers={headers} required />
+                  <ColumnSelect label="Amount column" value={mapping.amountCol} onChange={(v) => setMapping((m) => ({ ...m, amountCol: v ?? "" }))} headers={headers} required />
                 )}
               </div>
             </div>
