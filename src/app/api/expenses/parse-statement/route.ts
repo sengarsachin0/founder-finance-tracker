@@ -79,7 +79,8 @@ export async function POST(request: Request) {
   try {
     const buffer = Buffer.from(await file.arrayBuffer());
     // Dynamic import avoids pdf-parse reading test files at module load time
-    const pdfMod = await import("pdf-parse");
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const pdfMod = await import("pdf-parse") as any;
     const pdfParse = (pdfMod.default ?? pdfMod) as (buf: Buffer) => Promise<{ text: string }>;
     const result = await pdfParse(buffer);
     const transactions = extractTransactionsFromText(result.text);
