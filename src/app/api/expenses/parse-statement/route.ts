@@ -79,7 +79,8 @@ export async function POST(request: Request) {
   try {
     const buffer = Buffer.from(await file.arrayBuffer());
     // Dynamic import avoids pdf-parse reading test files at module load time
-    const pdfParse = (await import("pdf-parse")).default;
+    const pdfMod = await import("pdf-parse");
+    const pdfParse = (pdfMod.default ?? pdfMod) as (buf: Buffer) => Promise<{ text: string }>;
     const result = await pdfParse(buffer);
     const transactions = extractTransactionsFromText(result.text);
     return NextResponse.json({ transactions, raw: result.text.slice(0, 500) });
