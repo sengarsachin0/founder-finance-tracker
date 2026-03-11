@@ -222,7 +222,8 @@ const EXPORT_MODULES: {
   api: string;
   filename: string;
   headers: string[];
-  toRow: (item: Record<string, unknown>) => (string | number | boolean | null | undefined)[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  toRow: (item: any) => (string | number | boolean | null | undefined)[];
 }[] = [
   {
     id: "bank-accounts",
