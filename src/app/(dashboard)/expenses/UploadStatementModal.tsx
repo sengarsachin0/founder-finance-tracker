@@ -648,8 +648,8 @@ export function UploadStatementModal({ onImported }: { onImported: () => void })
               <div className="space-y-3">
                 <p className="text-sm font-medium">Column mapping</p>
 
-                <ColumnSelect label="Date" value={mapping.dateCol} onChange={(v) => setMapping((m) => ({ ...m, dateCol: v }))} headers={headers} required />
-                <ColumnSelect label="Description" value={mapping.descriptionCol} onChange={(v) => setMapping((m) => ({ ...m, descriptionCol: v }))} headers={headers} required />
+                <ColumnSelect label="Date" value={mapping.dateCol} onChange={(v) => setMapping((m) => ({ ...m, dateCol: v ?? "" }))} headers={headers} required />
+                <ColumnSelect label="Description" value={mapping.descriptionCol} onChange={(v) => setMapping((m) => ({ ...m, descriptionCol: v ?? "" }))} headers={headers} required />
 
                 {/* Amount type */}
                 <div className="grid grid-cols-[120px_1fr] items-start gap-3">
@@ -677,25 +677,25 @@ export function UploadStatementModal({ onImported }: { onImported: () => void })
                 </div>
 
                 {mapping.amountType === "debit_col" && (
-                  <ColumnSelect label="Debit / Withdrawal" value={mapping.debitCol} onChange={(v) => setMapping((m) => ({ ...m, debitCol: v }))} headers={headers} required />
+                  <ColumnSelect label="Debit / Withdrawal" value={mapping.debitCol} onChange={(v) => setMapping((m) => ({ ...m, debitCol: v ?? "" }))} headers={headers} required />
                 )}
                 {mapping.amountType === "debit_credit" && (
                   <>
-                    <ColumnSelect label="Debit column" value={mapping.debitCol} onChange={(v) => setMapping((m) => ({ ...m, debitCol: v }))} headers={headers} required />
-                    <ColumnSelect label="Credit column" value={mapping.creditCol} onChange={(v) => setMapping((m) => ({ ...m, creditCol: v }))} headers={headers} />
+                    <ColumnSelect label="Debit column" value={mapping.debitCol} onChange={(v) => setMapping((m) => ({ ...m, debitCol: v ?? "" }))} headers={headers} required />
+                    <ColumnSelect label="Credit column" value={mapping.creditCol} onChange={(v) => setMapping((m) => ({ ...m, creditCol: v ?? "" }))} headers={headers} />
                   </>
                 )}
                 {mapping.amountType === "amount_negative" && (
-                  <ColumnSelect label="Amount column" value={mapping.amountCol} onChange={(v) => setMapping((m) => ({ ...m, amountCol: v }))} headers={headers} required />
+                  <ColumnSelect label="Amount column" value={mapping.amountCol} onChange={(v) => setMapping((m) => ({ ...m, amountCol: v ?? "" }))} headers={headers} required />
                 )}
                 {mapping.amountType === "dr_cr" && (
                   <>
-                    <ColumnSelect label="Amount column" value={mapping.amountCol} onChange={(v) => setMapping((m) => ({ ...m, amountCol: v }))} headers={headers} required />
-                    <ColumnSelect label="DR/CR column" value={mapping.drCrCol} onChange={(v) => setMapping((m) => ({ ...m, drCrCol: v }))} headers={headers} required />
+                    <ColumnSelect label="Amount column" value={mapping.amountCol} onChange={(v) => setMapping((m) => ({ ...m, amountCol: v ?? "" }))} headers={headers} required />
+                    <ColumnSelect label="DR/CR column" value={mapping.drCrCol} onChange={(v) => setMapping((m) => ({ ...m, drCrCol: v ?? "" }))} headers={headers} required />
                   </>
                 )}
 
-                <ColumnSelect label="Balance (optional)" value={mapping.balanceCol} onChange={(v) => setMapping((m) => ({ ...m, balanceCol: v }))} headers={headers} />
+                <ColumnSelect label="Balance (optional)" value={mapping.balanceCol} onChange={(v) => setMapping((m) => ({ ...m, balanceCol: v ?? "" }))} headers={headers} />
               </div>
             </div>
 
