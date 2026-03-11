@@ -192,7 +192,7 @@ function AddEntryModal({
           {verticals.length > 0 && (
             <div className="space-y-2">
               <Label>Vertical (optional)</Label>
-              <Select value={verticalId} onValueChange={setVerticalId}>
+              <Select value={verticalId} onValueChange={(v) => setVerticalId(v ?? "")}>
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select vertical" />
                 </SelectTrigger>
@@ -410,7 +410,7 @@ function EditEntryModal({
           {verticals.length > 0 && (
             <div className="space-y-2">
               <Label>Vertical (optional)</Label>
-              <Select value={verticalId} onValueChange={setVerticalId}>
+              <Select value={verticalId} onValueChange={(v) => setVerticalId(v ?? "")}>
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select vertical" />
                 </SelectTrigger>

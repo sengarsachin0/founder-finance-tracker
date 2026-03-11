@@ -135,7 +135,7 @@ function ExpenseForm({
       <div className="grid grid-cols-2 gap-3">
         <div className="space-y-2">
           <Label>Category</Label>
-          <Select value={category} onValueChange={setCategory}>
+          <Select value={category} onValueChange={(v) => setCategory(v ?? "")}>
             <SelectTrigger className="w-full">
               <SelectValue />
             </SelectTrigger>

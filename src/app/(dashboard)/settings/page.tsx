@@ -124,7 +124,7 @@ function TallyMappingsSection() {
                 <td className="px-4 py-3 font-medium">{m.ledger_name}</td>
                 <td className="px-4 py-3">
                   {editingId === m.id ? (
-                    <Select value={editCategory} onValueChange={setEditCategory}>
+                    <Select value={editCategory} onValueChange={(v) => setEditCategory(v ?? "")}>
                       <SelectTrigger className="w-44 h-8 text-xs">
                         <SelectValue />
                       </SelectTrigger>

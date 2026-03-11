@@ -265,7 +265,7 @@ function ReportSection({
 
   const selectedTemplate = templates.find((t) => t.id === selectedTemplateId);
 
-  function selectTemplate(id: string) {
+  function selectTemplate(id: string | null) {
     const t = templates.find((x) => x.id === id);
     if (t) {
       setSelectedTemplateId(id);
