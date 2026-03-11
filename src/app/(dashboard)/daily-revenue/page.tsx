@@ -268,7 +268,7 @@ function ReportSection({
   function selectTemplate(id: string | null) {
     const t = templates.find((x) => x.id === id);
     if (t) {
-      setSelectedTemplateId(id);
+      setSelectedTemplateId(id ?? "");
       setTemplateText(t.template);
       setTemplateName(t.name);
       setEditingTemplate(false);
